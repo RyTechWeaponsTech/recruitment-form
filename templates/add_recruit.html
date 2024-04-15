@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Recruitment!</title>
+    <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://static.zohocdn.com/forms/images/formsicon.9f2e4a123b5b37ecd1e026b34f590968.png"
+      type="image/x-icon"
+    />
+    <!-- lokasi css di static/css/style.css -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='css/style.css') }}" />
+    <!-- temporary css -->
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="row">
+        <div>
+            <form action="/" method="post">
+                <div class="row">
+                    <h1>
+                        !!!Open Recruitment!!!
+                    </h1>
+                    <fieldset>
+                        <legend><span class="number">1.</span> Personal Informations</legend>
+                        <!-- Name -->
+                        <label for="name">Name: </label>
+                        <input type="text" id="name" name="name" required/>
+                        <!-- Age -->
+                        <label for="age">Age: </label>
+                        <input type="number" id="age" name="age" required/>
+                        <!-- birthday -->
+                        <label for="birthday">Birthday: </label>
+                        <input type="date" id="birthday" name="birthday" required/>
+                        <!-- what is yo gendah? -->
+                        <label for="gender">Gender: </label>
+                        <!-- radio for male -->
+                        <input type="radio" id="male" value="M" name="gender" required/>
+                        <label for="male" class="light">male</label>
+                        <!-- radio for female -->
+                        <input type="radio" id="male" value="M" name="gender" required/>
+                        <label for="female" class="light">female</label>
+                    </fieldset>
+                    <button type="submit">Register!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
