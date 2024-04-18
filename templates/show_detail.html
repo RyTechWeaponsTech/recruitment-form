@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details</title>
+    <title>Open Recruitment!</title>
     <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0" />
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:400,300"
@@ -15,9 +15,35 @@
       href="https://static.zohocdn.com/forms/images/formsicon.9f2e4a123b5b37ecd1e026b34f590968.png"
       type="image/x-icon"
     />
+    <!-- lokasi css di static/css/style.css -->
     <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='css/style.css') }}" />
-</head>
-<body>
-    
-</body>
+    <!-- temporary css -->
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <h1>Recruit Details:</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Birthday</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        { % for student in students % }
+        <tr>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.Age }}</td>
+          <td>{{ student.Birthday }}</td>
+          <td>{{ student.Gender }}</td>
+        </tr>
+
+        { % endfor % }
+      </tbody>
+    </table>
+    <a href="/"><button type="submit">Add a new recruit!</button></a>
+    <a href="/cleardatabase"><button type="submit">Clear Database</button></a>
+  </body>
 </html>
