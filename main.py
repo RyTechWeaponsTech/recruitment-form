@@ -2,19 +2,18 @@ from flask import Flask, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-# URI = Universal Resource Locator
+# URI stands for Uniform Resource Indetifier
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///students.sqlite3"
-app.config["SECRET_KEY"] = "RYTECH117"
+app.config["SECRET_KEY"] = "ABC987"
 db = SQLAlchemy(app)
 
+
 # create a table
-
-
 class students(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(100))
     Age = db.Column(db.Integer)
-    Birthday = db.Column(db.String(100))
+    dob = db.Column(db.String(100))
     Gender = db.Column(db.String(10))
 
     def __init__(self, name, age, birthday, gender):
@@ -22,6 +21,7 @@ class students(db.Model):
         self.Age = age
         self.Birthday = birthday
         self.Gender = gender
+
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -37,7 +37,6 @@ def add_recruit():
         return redirect(url_for("successfully"))
     return render_template("add_recruit.html")
 
-
 @app.route("/successfully")
 def successfully():
     return render_template("successfully.html")
@@ -50,7 +49,7 @@ def show_detail():
     return render_template("show_detail.html", students=all_recruits)
 
 
-@app.route("/clea_database", methods=["GET", "POST"])
+@app.route("/clear_database", methods=["GET", "POST"])
 def clear_database():
     if request.method == "POST":
         # Deletes all data
@@ -60,10 +59,10 @@ def clear_database():
         # redirect to the show details
         return redirect(url_for("successfully"))
     # render a template for confirmation
-    return render_template("clear_databse.html")
+    return render_template("clear_database.html")
 
 
-if __name__ == "__name__":
+if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         app.run(debug=True, port="8081")
