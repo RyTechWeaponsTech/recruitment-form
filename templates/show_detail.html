@@ -32,15 +32,15 @@
         </tr>
       </thead>
       <tbody>
-        { % for i in students % }
+        {% for student in students %}
         <tr>
-          <td>{{ students.Name }}</td>
-          <td>{{ students.Age }}</td>
-          <td>{{ students.Birthday }}</td>
-          <td>{{ students.Gender }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.Age }}</td>
+          <td>{{ student.Birthday }}</td>
+          <td>{{ student.Gender }}</td>
         </tr>
 
-        { % endfor % }
+        {% endfor %}
       </tbody>
     </table>
     <a href="/"><button type="submit">Add a new recruit!</button></a>
